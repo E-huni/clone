@@ -1,0 +1,39 @@
+<h1 class="text-center"><%= current_user.user_name %>'s Timeline</h1>
+<%= form_for @post do |post| %>
+  <%= hidden_field :post_id, value: "post.id" %>
+  <%= post.text_area :content %>
+  <%= post.submit "Post" %>
+
+<%= render :partial => @post %>
+
+<%= render :partial => @post.comments %>
+
+
+<% end %>
+
+<% @posts.each do |p| %>
+<ul>
+  <li>Posted by<%= p.user.user_name %></li>
+  <div>
+  <%= p.content %>
+
+  <%= link_to "comment", post_comments_path(p) %>
+</div>
+</ul>
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+
+<section>
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.user_name %>
+      </h1>
+</section>
+
+
+
+<h3>Posts</h3>
+<% @posts.each do |post| %>
+<ul>
+  <li><%= post.content %> at <%= post.created_at %></li>
+</ul>
+<% end %>
+
+
+
